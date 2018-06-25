@@ -1,0 +1,29 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h3 class="text-center">{{ title }}</h3>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td> Name </td>
+                <td> Email </td>
+                <td> Phone </td>
+                <td> Area  </td>
+                <td> Due Date </td>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.full_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.area }}</td>
+                    <td>{{ user.paid }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h1 class="text-center">ACCESS DENIED<br><small>Please Login to access</small></h1>
+    {% endif %}
+{% endblock %}

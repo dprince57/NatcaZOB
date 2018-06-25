@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+    <h1 class="text-center">{{ title }}</h1>
+        {% for blog in blog|dictsortreversed:0  %}
+            <div class="jumbotron">
+                <h3 class="display-4">{{ blog.title }}</h3>
+                <p class="lead">{{ blog.body }}</p>
+                <hr class="my-4">
+                <p>{{ blog.poster }}</p>
+                <a class="btn btn-primary" href="{% url 'detail' blog.id %}" role="button">Learn More</a>
+            </div>
+        {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ blogform.as_p }}
+            <input class="btn btn-primary" type="submit" value="Publish">
+        </form>
+    {% else %}
+        <h1 class="text-center">ACCESS DENIED<br><small>Please Login to access</small></h1>
+    {% endif %}
+
+
+{% endblock %}
